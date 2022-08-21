@@ -1,24 +1,28 @@
 #include<iostream>
 using namespace std;
 main()
-{int a[5][2];
-int i,j;
-for(i=0;i<5;i++)
+{int a[10];
+int i,j,s;
+int b=0;
+cout<<"enter the values of array"<<endl;
+for(i=0;i<10;i++)
+{	
+	cin>>a[i];
+}
+cout<<"enter the values u want to be searched";
+	cin>>s;
+
+for(j=0;j<10;j++)
 {
-for(j=0;j<2;j++)
-{
-	cout<<"enter the values of array";
-	cin>>a[i][j];
+	if(a[j]==s)
+	{
+	cout<<"Founded the element "<<a[j]<<"at a["<<j<<"]";
+b++;
 }
 }
-for(i=0;i<5;i++)
+if(b==0)
 {
-cout<<"entered values of array are";
-for(j=0;j<2;j++)
-{
-cout<<a[i][j]<<" ";
-}
-cout<<"\n";
+	cout<<"No such element in array";
 }
 }
 
