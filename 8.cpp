@@ -1,43 +1,34 @@
-// Hierarchical inheritance 
 #include<iostream>
 using namespace std;
-class A                  //parent  class
+class abc
 {
 public:
 	int x,y;
-		void get()
-		{ cout<<"enter the x value= ";
-		cin>>x; 
-		cout<<"enter the y value= ";
-		cin>>y;
-			}
-};
-class B:public A
+
+void getdata(int a,int b) // parameterized constructior
 {
-	int s;
-	public:
-		void sum()
-		{		
-			s=x+y;
-			cout<<"The Sum of entered no is = "<<s<<endl;
-		}
-};
-class C:public A
+x=a;
+y=b;
+}
+void display()
 {
-	int t;
-	public:
-		void mul()
-		{		
-			t=x*y;
-			cout<<"The Multiplication of entered no is = "<<t<<endl;
-		}
+cout<<x<<" "<<y<<endl;
+}
+void friend abc operator+(abc &b,abc &c);
 };
+void abc operator+(abc &b,abc &c)
+{ 
+b.x=b.x+c.x;
+b.y=b.y+c.y;
+}
+
 main()
 {
-	B o1;
-	C o2;
-	o1.get();
-	o1.sum();
-	o2.get();
-	o2.mul();
+abc obj1,obj2,obj3;
+obj2.getdata(20,10);
+obj1.getdata(10,20);
+obj1.display();
+obj1+obj2;
+cout<<"after overloading"<<endl;
+obj1.display();
 }

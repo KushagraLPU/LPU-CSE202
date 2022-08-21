@@ -1,47 +1,35 @@
+// check the creation of abstract class object
 #include<iostream>
 using namespace std;
-class M
-{
-protected :
-int m;
-public:
-void getm(int a)
-{
-m=a;
-}
-void showm()
-{
-cout<<" m is " <<m<<endl;
-}
-};
-
-class N
-{
-protected :
-int n;
-public:
-void getn(int b)
-{
-n=b;
-}
-void shown()
-{
-cout<<" m is " <<m<<endl;
-}
-};
-class p : public M, public N // multiple inheritance
+class base
 {
 public:
-void display()
+int a , b;
+virtual void in()
 {
-showm();
-shown();
-}
-};
-
+cout<<" enter values"<<endl;
+cin>>a>>b; }
+void show()
+{
+cout << " values are "<<a<<" "<<b<<endl;
+} };
+class derive: public base
+{
+int c;
+public:
+void in()
+{
+cout<<" enter values of a , b ,c "<<endl;
+cin>>a>>b>>c; }
+void show()
+{
+cout<<" value of c is "<<c;
+} };
 main()
 {
-
-p obj;
-// call the differetn function of base class to initialize the value of m and n with the object obj
+base a;
+derive b;
+b.in();
+a=b;
+a.show();
 }

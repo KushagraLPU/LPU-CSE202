@@ -1,29 +1,38 @@
 #include<iostream>
 using namespace std;
-class A                  //parent  class
+class abc
 {
-	private:
-int a,b;
+int x;
 public:
-	int mul()
-	{a=4;
-	b=5;
-	int c=a*b;
-	return c;
-		}	
-};
-
-class B: private A  //child class
+abc()  // parameterized constructior
 {
-	public:
-		void display()
-		{
-			int result = mul();
-			std::cout<<"Multiplication of a and b is :"<<result<<std::endl;
-		}
+x=0;
+}
+int show()
+{
+return(x);
+}
+void friend operator++(abc &b);
+void friend operator++(abc &b,int );
 };
+void operator++(abc &b)
+{  
+   cout<<"prefix "<<endl;
+   b.x=b.x+1;
+   
+}
+void operator++(abc &b,int )
+{  
+   cout<<"postfix "<<endl;
+   b.x=b.x+1;
+   }
+
 main()
 {
-	B obj;
-	obj.display();
+abc o1,o2;
+++o1;
+cout<<o1.show()<<endl;
+o2++;
+cout<<o2.show()<<endl;
 }
+

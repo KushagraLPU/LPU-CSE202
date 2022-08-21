@@ -1,67 +1,41 @@
-// inheritance single example
 #include<iostream>
 using namespace std;
-class B1
+class base
 {
-protected :
-int x;
-public :
-void get1()
+	public:
+int a,b;
+virtual void in()
 {
-cout<<"enter the value of x"<<endl;
-cin>>x; } 
-void display1()
-{
-	cout<<"value of x is = "<<x<<endl;
+	cout<<"enter values "<<endl;
+	cin>>a>>b;
 }
-
-void increment1()
-{
-	x++;
-}
+void show(){
+	cout<<"values are "<<a<<" "<<b<<endl;
+	}
 };
 
-class B2
+class derived:public base
 {
-protected :
-int y;
-public :
-void get2()
-{
-cout<<"enter the value of y"<<endl;
-cin>>y; } 
-void display2()
-{
-	cout<<"value of y is = "<<y<<endl;
-}
-
-void increment2()
-{
-	y++;
-}
+	int c;
+	public:
+		void in()
+		{
+			cout<<"enter values"<<endl;
+			cin>>a>>b>>c;
+		}
+				
+void show(){
+	cout<<"values are "<<c<<" "<<endl;
+	}
+			
 };
-class D:public B1,public B2
-{
-public:
-void decrement()
-{
-	x--;
-	y--;
-}
- 
-};
-
 main()
 {
-D obj;
-obj.get1();
-obj.get2();
-obj.increment1();
-obj.increment2();
-obj.display1();
-obj.display2();
-obj.decrement();
-obj.display1();
-obj.display2();
+	base a,c;
+	derived b,d;
+	b.in();
+	a=b;
+	a.show();
+	b.show();
 
 }

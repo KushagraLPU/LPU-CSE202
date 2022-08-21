@@ -1,46 +1,36 @@
-//hybrid program
+// class to basic
 #include<iostream>
 using namespace std;
-class publisher
+class ctb
 {
-public:
-void get()
-{
-cout<<"in the 1st one"<<endl;
-}
+	int hr,min;
+	public:
+	ctb(int a,int b)
+	{
+		hr=a;
+		min=b;
+	}
+	void show()
+	{
+		cout<<"The time is "<<hr<<":"<<min<<endl;
+	}
+	
+	operator int()
+	{ 
+	int m;
+	m=(hr*60)+min;
+	return m;
+	}
 };
-class author:virtual public publisher
-{
-public:
-void p1()
-{
-cout<<"in the 2st one"<<endl;
-}
-};
-
-class distributer:virtual public publisher
-{
-public:
-void p2()
-{
-cout<<"in the 3rd one"<<endl;
-}
-};
-
-class book:public author,public distributer
-{
-public:
-void p3()
-{
-cout<<"in the 4rd one"<<endl;
-}
-};
-
 main()
 {
-	book o1;
-	o1.get();
-	o1.p1();
-	o1.p2();
-	o1.p3();
+	ctb o1(1,30);
+	o1.show();
+	int m,m2;
+	m=o1;
+	ctb o2(5,30);
+	m2=o2;
+	cout<<m<<endl<<m2<<endl;	
+    o2.show();
+	
 }

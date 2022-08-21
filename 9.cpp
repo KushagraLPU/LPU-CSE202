@@ -1,39 +1,28 @@
 #include<iostream>
 using namespace std;
-class A
+class NOT
 {
+int a;
 public:
-show()
+NOT()
 {
-cout<<"in A"<<endl; 
-} 
-};
-class B
-{
-public:
-show()
-{
-cout<<"in B "<<endl;
+a=0;
 }
-};
-class C:public A,public B
+show()
 {
-	public:
-/*	void display()
-		{
-	B::show();
-	A::show();
-	}};*/
-	show()
-	{
-		cout<<"i am function of derive"<<endl;
-	//	show();
-		B::show();
-		A::show();
-	}
+cout<<a <<"=a"<<endl;
+}
+NOT operator!( )
+{
+	a=!a;
+}
+
+
 };
 main()
 {
-C d;
-d.show();
+NOT m;
+m.show();
+!m;
+m.show();
 }

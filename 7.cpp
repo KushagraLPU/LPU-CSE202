@@ -1,39 +1,36 @@
-// multilevel inheritance 
 #include<iostream>
 using namespace std;
-class A                  //parent  class
+class abc
 {
 public:
-	int a;
-		A()
-		{ cout<<"enter the a value= ";
-		cin>>a; 	}
-};
+	int x,y;
 
-class B: public A  //child class
+void getdata(int a,int b) // parameterized constructior
 {
-	public:
-		int b;
-		B()
-		{cout<<"enter the b value= ";
-		cin>>b;
-			}
+x=a;
+y=b;
+}
+void display()
+{
+cout<<x<<" "<<y<<endl;
+}
+friend abc operator+(abc b,abc c);
 };
+abc operator+(abc b,abc c)
+{
+abc q;  
+q.x=b.x+c.x;
+q.y=b.y+c.y;
+return q;
+}
 
-class C:public B
-{
-	int s;
-	public:
-		C()
-		{		
-			s=a+b;
-			cout<<"The Sum of entered no is = "<<s;
-		}
-};
 main()
 {
-	C obj;
-//	obj.get();
-//	obj.get1();
-//	obj.sum();
+abc obj1,obj2;
+obj2.getdata(20,10);
+obj1.getdata(10,20);
+obj1.display();
+obj2=obj1+obj2;
+cout<<"after overloading"<<endl;
+obj2.display();
 }

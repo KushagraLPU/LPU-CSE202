@@ -1,26 +1,41 @@
+//problem statement for class to class with constructor
 #include<iostream>
-#include<fstream>
 using namespace std;
-class employee
-{public:
-	int id;
-	string name;
-    float salary;
+class time_s // source class
+{
+
+int hr, min;
+public:
+time_s(int a, int b)
+{
+hr=a;
+min=b; }
+
+int gethr( ) { return hr; }
+int getmin( ) { return min; }
+};
+class time_d // desitination class
+{
+int minutes;
+public:
+friend class time_s;
+time_d() { }
+time_d(time_s x )
+{
+int m=x.getmin();
+int h=x.gethr();
+minutes =m+(h*60);
+}
+void show()
+{
+cout<<" minutes after conversion "<<minutes<<endl;
+}
 };
 main()
 {
-	employee emp;
-	emp.name="Kushagra";
-	emp.id=007;
-	emp.salary-900000.000;
-fstream f1;
-f1.open("emp_1.txt",ios::out|ios::app);
-f1.write((char*)&emp,sizeof(emp));
-f1.close();
-f1.open("emp_1.txt",ios::in);
-f1.read((char*)&emp,sizeof(emp));
-cout<<emp.id<<endl;
-cout<<emp.name<<endl;
-cout<<emp.salary<<endl;
-f1.close();
+time_s t(1,30);
+time_d tm;
+tm=t;
+cout<<t.gethr()<<":"<<t.getmin();
+tm.show();
 }

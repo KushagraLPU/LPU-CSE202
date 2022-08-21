@@ -1,32 +1,48 @@
-// inheritance basic example
 #include<iostream>
 using namespace std;
-class A
+class shape
 {
-private:
-int x;
-protected :
-int y;
-public :
-int z;
-void get()
+protected:
+	int l,w,a;
+public:
+void read()
 {
-x=10;
-cout<<x; } };
-class B: protected A
+	cout<<"enter values "<<endl;
+	cin>>l>>w>>a;
+	}	
+virtual	void cal()=0;
+	};
+	
+class rectangle:public shape 
 {
 public:
-void test()
+void cal()
 {
-z=76;
-y=9;
-cout<<y<<" "<<z<<endl;
-get(); } };
+int area = l*w;
+	cout<<"area of rectangle is = " <<area<<endl;
+	}
+	};
+class square:public shape 
+{
+public:
+void cal()
+{
+	int area = a*a;
+	cout<<"area of square is = " <<area<<endl;
+	}	
+	};
 main()
-{
-B obj;
-obj.test();
-// obj.z=10;
-// create an object of base class andd try to access funciton of derived class
+{ 
+shape *obj;
+rectangle o1;
+square o2;
+obj=&o1;
+obj->read();
+obj->cal();
+//obj=&o2;
+//obj->read();
+//obj->cal();
+o2.read();
+o2.cal();
 
 }

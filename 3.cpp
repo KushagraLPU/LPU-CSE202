@@ -1,43 +1,34 @@
-// inheritance single example
 #include<iostream>
 using namespace std;
-class B
+class abc
 {
-protected :
-int x;
-public :
-void get()
-{
-cout<<"enter the value of x"<<endl;
-cin>>x; } 
-void display()
-{
-	cout<<"value of x is = "<<x<<endl;
-}
-
-void increment()
-{
-	x++;
-}
+	public:
+abc()
+		{
+			cout<<"A"<<endl;
+			
+		}
+	virtual	~abc()
+		{
+			cout<<"B"<<endl;
+		}
+	
 };
-
-class D:public B
+class bca:public abc
 {
-public:
-void decrement()
-{
-	x--;
-}
- 
+	public:
+		bca()
+		{
+			cout<<"C"<<endl;
+		}
+		~bca()
+		{
+			cout<<"d"<<endl;
+		}
+		
 };
-
 main()
 {
-D obj;
-obj.get();
-obj.increment();
-obj.display();
-obj.decrement();
-obj.display();
-
+	abc *ptr=new bca;
+	delete ptr;
 }

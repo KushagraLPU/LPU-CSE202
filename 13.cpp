@@ -1,44 +1,45 @@
+// class to class S to D
 #include<iostream>
 using namespace std;
-class base1
+//class ctc_S;
+class ctc_D
 {
-public:
-base1()
-{
-cout<<"in the 1st one"<<endl;
-}
-~base1()
-{
-cout<<"in the 1st one"<<endl;
-}
-};
-class base2
-{
-public:
-base2()
-{
-cout<<"in the 2st one"<<endl;
-}
-~base2()
-{
-cout<<"in the 2st one"<<endl;
-}
-};
+	int min_d;
+	public:
+	void show()
+	{
+	cout<<":"<<min_d<<endl;
+	}
+	friend class ctc_S;
+		};
 
-class derived:public base1,public base2
+class ctc_S
 {
-public:
-derived()
-{
-cout<<"in the derived"<<endl;	
-}
-~derived()
-{
-cout<<"in the derived"<<endl;	
-}
+	int hr,min;
+	public:
+    ctc_S(int a,int b)
+	{
+		hr=a;
+		min=b;
+	}
+	void show()
+	{
+		cout<<"The time is "<<hr<<":"<<min<<endl;
+	}
+	
+	operator ctc_D()
+	{ 
+	ctc_D m;
+	m.min_d=(hr*60)+min;
+	}
 };
 
 main()
 {
-derived o1;
+	ctc_S ts(1,30);
+	ctc_D td;
+	td=ts;
+	ts.show();
+	td.show();
+	
 }
